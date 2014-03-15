@@ -22,61 +22,61 @@ class PiCam:
 	vidConfig = []
 
 	def __init__(self):
-		readConfig()
+		self.readConfig(self)
 
-	def readConfig():
-		if os.path.isfile(CONFIG_FILE):
-			with open(CONFIG_FILE) as f:
+	def readConfig(self):
+		if os.path.isfile(self.CONFIG_FILE):
+			with open(self.CONFIG_FILE) as f:
 				for line in f:
 					if line.startswith(('c')):
-						camConfig.append([])
+						self.camConfig.append([])
 						(property, ext, val) = line.split()
-						camConfig[len(camConfig)-1].append(property)
-						camConfig[len(camConfig)-1].append(ext)
-						camConfig[len(camConfig)-1].append(val)
+						self.camConfig[len(camConfig)-1].append(property)
+						self.camConfig[len(camConfig)-1].append(ext)
+						self.camConfig[len(camConfig)-1].append(val)
 					elif line.startswith(('i')):
-						stillConfig.append([])
+						self.stillConfig.append([])
 						(property, ext, val) = line.split()
-						stillConfig[len(stillConfig)-1].append(property)
-						stillConfig[len(stillConfig)-1].append(ext)
-						stillConfig[len(stillConfig)-1].append(val)
+						self.stillConfig[len(stillConfig)-1].append(property)
+						self.stillConfig[len(stillConfig)-1].append(ext)
+						self.stillConfig[len(stillConfig)-1].append(val)
 					elif line.startswith(('v')):
-						vidConfig.append([])
+						self.vidConfig.append([])
 						(property, ext, val) = line.split()
-						vidConfig[len(vidConfig)-1].append(property)
-						vidConfig[len(vidConfig)-1].append(ext)
-						vidConfig[len(vidConfig)-1].append(val)
+						self.vidConfig[len(vidConfig)-1].append(property)
+						self.vidConfig[len(vidConfig)-1].append(ext)
+						self.vidConfig[len(vidConfig)-1].append(val)
 		else:
 			print >> sys.stderr, 'Unable to locate Configuration file'
 			
-	def executePhoto():
+	def executePhoto(self):
 		cmd = ["raspistill"]
-		for i in range(0, len(camConfig)):
-			if camConfig[i][2].lower() != "false" and camConfig[i][2].lower() != "true":
-				cmd.append(camConfig[i][1])
-				cmd.append(camConfig[i][2])
-			elif camConfig[i][2].lower() == "true":
-				cmd.append(camConfig[i][1])
-		for i in range(0, len(stillConfig)):
-			if stillConfig[i][2].lower() != "false" and stillConfig[i][2].lower() != "true":
-				cmd.append(stillConfig[i][1])
+		for i in range(0, len(self.camConfig)):
+			if self.camConfig[i][2].lower() != "false" and self.camConfig[i][2].lower() != "true":
+				cmd.append(self.camConfig[i][1])
+				cmd.append(self.camConfig[i][2])
+			elif self.camConfig[i][2].lower() == "true":
+				cmd.append(self.camConfig[i][1])
+		for i in range(0, len(self.stillConfig)):
+			if self.stillConfig[i][2].lower() != "false" and self.stillConfig[i][2].lower() != "true":
+				cmd.append(self.stillConfig[i][1])
 				cmd.append(stillConfig[i][2])
-			elif stillConfig[i][2].lower() == "true":
+			elif self.stillConfig[i][2].lower() == "true":
 				cmd.append(stillConfig[i][1])
 		subprocess.call(cmd)
 
-	def executeVid():
+	def executeVid(self):
 		cmd = ["raspivid"]
-		for i in range(0, len(camConfig)):
-			if camConfig[i][2].lower() != "false" and camConfig[i][2].lower() != "true":
-				cmd.append(camConfig[i][1])
-				cmd.append(camConfig[i][2])
+		for i in range(0, len(self.camConfig)):
+			if self.camConfig[i][2].lower() != "false" and self.camConfig[i][2].lower() != "true":
+				cmd.append(self.camConfig[i][1])
+				cmd.append(self.camConfig[i][2])
 			elif camConfig[i][2].lower() == "true":
-				cmd.append(camConfig[i][1])
-		for i in range(0, len(vidConfig)):
-			if vidConfig[i][2].lower() != "false" and vidConfig[i][2].lower() != "true":
-				cmd.append(vidConfig[i][1])
-				cmd.append(vidConfig[i][2])
-			elif vidConfig[i][2].lower() == "true":
-				cmd.append(vidConfig[i][1])
+				cmd.append(self.camConfig[i][1])
+		for i in range(0, len(self.idConfig)):
+			if self.vidConfig[i][2].lower() != "false" and self.vidConfig[i][2].lower() != "true":
+				cmd.append(self.vidConfig[i][1])
+				cmd.append(self.vidConfig[i][2])
+			elif self.vidConfig[i][2].lower() == "true":
+				cmd.append(self.vidConfig[i][1])
 		subprocess.call(cmd)
