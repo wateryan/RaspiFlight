@@ -47,7 +47,8 @@ class Adafruit_I2C :
     return val
 
   def errMsg(self):
-    print "Error accessing 0x%02X: Check your I2C address" % self.address
+    # REMOVED BECAUSE ANNOYING AS HELL
+    # print "Error accessing 0x%02X: Check your I2C address" % self.address
     return -1
 
   def write8(self, reg, value):

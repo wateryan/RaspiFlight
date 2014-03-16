@@ -27,11 +27,9 @@ class BMP:
                 return self.bmp.readTemperature()
 
         def getPressure(self):
-                return self.bmp.readPressue()
+                return self.bmp.readPressure()
 
-        def getAltitute(self):
-                return self.bmp.readAltitude((bmp.readPressure() * 100))
+        def getAltitude(self):
+                return self.bmp.readAltitude((self.bmp.readPressure() * 100))
 
-# TEST TEST TEST TEST
-bmp = BMP()
-# print bmp.getTemp()
+BMP = BMP()
