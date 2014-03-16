@@ -70,7 +70,7 @@ def run():
                         photo_thread.join(1)
         except KeyboardInterrupt:
                 print "^C Caught. Exit."
-                
+                os._exit(0)
 
 
 checkPrivelages()
