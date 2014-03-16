@@ -62,16 +62,23 @@ class GPS:
 
         #LONG AND LAT are untested due to problems getting a fix in the dorms
         def getLatitude(self):
-                lat = self.latitude[0][:2]
-                deg = self.latitude[0][2:]
-                NS = self.latitude[1]
-                return "Lat %s deg %s' %s" % (lat, deg, NS,)
-        
+                #Check if Active
+                if self.status == 'A':
+                        lat = self.latitude[0][:2]
+                        deg = self.latitude[0][2:]
+                        NS = self.latitude[1]
+                        return "Lat %s deg %s' %s" % (lat, deg, NS,)
+                else:
+                        return "N/A"
+
         def getLongtitude(self):
-                lon = self.longtitude[0][:2]
-                deg = self.longtitude[0][2:]
-                EW = self.longtitude[1]
-                return "Long %s deg %s' %s" % (lon,deg,EW,)
+                if self.status == 'A':
+                        lon = self.longtitude[0][:2]
+                        deg = self.longtitude[0][2:]
+                        EW = self.longtitude[1]
+                        return "Long %s deg %s' %s" % (lon,deg,EW,)
+                else:
+                        return "N/A"
 
         def getSpeed(self):
                 return "%s knots" % (self.groundSpeed,)
@@ -80,8 +87,10 @@ class GPS:
                 return "%s Degrees True" % (self.trackAngle,)
 
         def getMagneticVariation(self):
-                return "%s,%s" % (self.magneticVariation[0],self.magneticVariation[1],)
-
+                if self.status == 'A':
+                        return "%s,%s" % (self.magneticVariation[0],self.magneticVariation[1],)
+                else:
+                        return "N/A"
         def getChecksum(self):
                 return "%s" % (self.checksum,)
 
