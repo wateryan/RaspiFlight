@@ -5,6 +5,20 @@
 Part of a flight controller module for the RaspberryPi. Manages a GPS module, Barometric/Altitude/Temperature sensors, and a camera module.
 
 ---------------
+     v0.25
+---------------
+-RaspiFlight.py
+  -Made as entry point to the program
+  -Created interface to display program output
+
+-piCam.py
+  -Changed from a class to a script to enable usage by RaspiFlight.py
+  -renamed to PiCam.py
+  
+-BMP.py
+  -general bug fixes and some cleanup of the code
+
+---------------
      v0.01
 ---------------
 -Attached program to Adafruit library for use of the Sensors on the Barometer module
