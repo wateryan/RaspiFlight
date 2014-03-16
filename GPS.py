@@ -1,4 +1,14 @@
 #!/usr/bin/python
+###############################
+#                             #
+#   RaspiFlight GPS Module    #
+#            v0.25            #
+#                             #
+# Parses GPS output from      # 
+# ttyAMA0 serial connection   #
+# on the Raspberry Pi         #
+#                             #
+###############################
 
 import csv
 import os
@@ -22,7 +32,8 @@ class GPS:
         def __init__(self):
                 self.addr = '/dev/ttyAMA0'
                 self.baud = 9600
-        
+                print "GPS Initialized"
+
         def update_GPS(self):
                 ser = serial.Serial(self.addr, self.baud)
                 x = ''
@@ -38,8 +49,7 @@ class GPS:
                 self.trackAngle = x[8]
                 self.date = x[9]
                 self.magneticVariation.extend((x[10],x[11]))
-                self.checksum = x[12]
-                print x 
+                self.checksum = x[12]                 
 
         def getTime(self):
                 currtime = re.findall(r'.{1,2}',self.time)
@@ -94,14 +104,4 @@ class GPS:
         def getChecksum(self):
                 return "%s" % (self.checksum,)
 
-gps = GPS()
-gps.update_GPS()
-print gps.getTime()
-print gps.getDate()
-print gps.getStatus()
-print gps.getLatitude()
-print gps.getLongtitude()
-print gps.getSpeed()
-print gps.getTrackAngle()
-print gps.getMagneticVariation()
-print gps.getChecksum()
+GPS = GPS()

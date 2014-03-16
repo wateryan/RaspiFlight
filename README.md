@@ -5,6 +5,15 @@
 Part of a flight controller module for the RaspberryPi. Manages a GPS module, Barometric/Altitude/Temperature sensors, and a camera module.
 
 ---------------
+     v0.30
+---------------
+-RaspiFlight.py
+  -Added GPS to UI
+
+-GPS.py
+  -Removed test code
+
+---------------
      v0.25
 ---------------
 -RaspiFlight.py
