@@ -17,7 +17,6 @@ import sys
 import threading
 import subprocess
 # Import RaspiFlight
-from BMP import BMP
 from PiCam import PiCam
 from GPS import GPS
 
@@ -26,9 +25,14 @@ pictureInterval=5 # in seconds
 def checkPrivelages():
         # Check root priv
         # Required to use Barometer
-        if not os.geteuid()==0:
-                print "\nRoot privelages required to run.\n"
-                sys.exit(1)     
+        if os.geteuid()!=0:
+                print "\nBarometer requires root privelages required to run.\n"
+                print "Exiting..."
+                sys.exit(1)
+        else:
+                global BMP
+                from BMP import BMP
+                
 
 def interface():
         GPS.update_GPS()
@@ -71,7 +75,6 @@ def run():
         except KeyboardInterrupt:
                 print "^C Caught. Exit."
                 os._exit(0)
-
 
 checkPrivelages()
 run()
