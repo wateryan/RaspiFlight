@@ -1,5 +1,30 @@
-Raspberry Pi
-Adafruit Ultimate GPS Breakout - 66 channel w/10 Hz updates
-	http://www.adafruit.com/products/746?gclid=CJOyiJbF8L0CFQsSMwod4QMA9w
-BMP085 Barometric Pressure/Temperature/Altitude Sensor- 5V ready
-	https://www.adafruit.com/products/391
+Pi
+Camera x2
+GPS
+Transmitter
+Receiver
+Weather Balloon
+Parachute
+Barometric Pressure
+Helium
+Case – Cake Form and Spray Adhesive
+Rudder Cement 
+Battery Pack
+Batteries
+Reflector
+IPhone with otter box
+Antenna
+Tape
+Hotspot
+Crossover Cable
+Tubing for Helium Tank – Tube, PCV Elbow, and hose clamp
+Breadboard
+Bus ribbon
+Rope
+Stamps
+SD Card with USB Reader
+Latex Gloves
+5v Regulator
+Phone Plan from AT&T
+Party Balloons with weight
+Zip Ties
