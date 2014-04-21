@@ -5,6 +5,23 @@
 Part of a flight controller module for the RaspberryPi. Manages a GPS module, Barometric/Altitude/Temperature sensors, and a camera module.
 
 ---------------
+  pre Launch
+---------------
+
+Last minute change on the pi hardware itself that made
+RaspiFlight redirect output to a file instead of stdout.
+This isn't reflected in the code here because this change
+was made in the field. We were still having too many errors
+with radio transmission to risk losing ALL of the data
+that could have been collected.
+
+The only thing that would have been different is that
+I (ryan) changed all the ui "print" statements to out.write()
+which appended to a file in the local directory. The rest of the code
+is as it was the day of the launch.
+
+
+---------------
      v0.30
 ---------------
 -RaspiFlight.py

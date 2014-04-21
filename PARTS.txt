@@ -1,0 +1,5 @@
+Raspberry Pi
+Adafruit Ultimate GPS Breakout - 66 channel w/10 Hz updates
+	http://www.adafruit.com/products/746?gclid=CJOyiJbF8L0CFQsSMwod4QMA9w
+BMP085 Barometric Pressure/Temperature/Altitude Sensor- 5V ready
+	https://www.adafruit.com/products/391
